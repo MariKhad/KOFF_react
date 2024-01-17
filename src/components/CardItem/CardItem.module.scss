@@ -1,0 +1,78 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  color: #1c1c1c;
+
+  @media (min-width: 520px) {
+    gap: 20px;
+  }
+}
+
+.title {
+  font-family: Open Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  align-self: end;
+
+  @media (min-width: 520px) {
+    font-size: 16px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @media (min-width: 520px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.price {
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+
+  @media (min-width: 520px) {
+    font-size: 20px;
+  }
+}
+
+.currency {
+  font-family: Open Sans;
+}
+
+.img {
+  width: 100%;
+}
+
+.button {
+  border-radius: 32px;
+  height: 38px;
+  width: 100%;
+  border: 1px solid #780096;
+  padding: 12px 24px;
+  color: #780096;
+
+  &:hover,
+  &:active {
+    color: white;
+    border: 1px solid #9200b7;
+    background-color: #9200b7;
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+  }
+
+  &:focus-visible {
+    border: 1px solid #c0f;
+  }
+}

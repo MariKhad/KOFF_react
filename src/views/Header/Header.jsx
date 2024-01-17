@@ -4,7 +4,7 @@ import { SearchForm } from "../../components/SearchForm/SearchForm";
 import { Container } from "../Container/Container";
 import s from "./Header.module.scss";
 export const Header = () => (
-  <header>
+  <header className={s.header}>
     <Container className={s.container}>
       <div className={s.logo}>
         <Logo />

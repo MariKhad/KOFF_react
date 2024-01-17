@@ -1,0 +1,15 @@
+.img {
+  width: 100%;
+}
+
+.link {
+  border-radius: 4px;
+
+  @media (min-width: 520px) {
+    flex-direction: row;
+  }
+  &:focus-visible {
+    color: #780096;
+    outline-color: #780096;
+  }
+}
