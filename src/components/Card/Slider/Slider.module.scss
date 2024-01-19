@@ -1,4 +1,3 @@
-
 .picture {
   margin-bottom: 32px;
 
@@ -19,11 +18,9 @@
   @media (min-width: 580px) {
     margin-bottom: 14px;
   }
-
-  
 }
 
-.slide {
+.slideMain {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +40,6 @@
   @media (min-width: 580px) {
     display: block !important;
   }
-
 }
 
 .slideThumbnail {
@@ -56,7 +52,6 @@
   height: 100%;
   object-fit: cover;
 }
-
 
 .arrow {
   position: absolute;

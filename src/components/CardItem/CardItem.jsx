@@ -3,12 +3,12 @@ import s from "./CardItem.module.scss";
 
 export const CardItem = ({ name, images: [image], price, id }) => (
   <article className={s.card}>
-    <a href={`/product/${id}`} className={s.link}>
-      <img src={`${API_URL}/${image}`} alt={name} className="img" />
+    <a href={`product/${id}`} className={s.link}>
+      <img src={`${API_URL}${image}`} alt={name} className="img" />
     </a>
     <div className={s.info}>
       <h3 className={s.title}>
-        <a href={`/product/${id}`} className={s.link}>
+        <a href={`product/${id}`} className={s.link}>
           {name}
         </a>
       </h3>

@@ -19,6 +19,12 @@ export const fetchProducts = createAsyncThunk(
     });
 
     if (!response.ok) {
+      if (response.status === "401") {
+        return thunkAPI.rejectWithValue({
+          status: response.status,
+          error: "Неудалось получить товары",
+        });
+      }
       throw new Error("Неудалось получить товары");
     }
 

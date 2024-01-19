@@ -19,6 +19,12 @@ export const fetchCategories = createAsyncThunk(
     });
 
     if (!response.ok) {
+      if (response.status === "401") {
+        return thunkAPI.rejectWithValue({
+          status: response.status,
+          error: "Неудалось получить каталог",
+        });
+      }
       throw new Error("Неудалось получить каталог");
     }
 

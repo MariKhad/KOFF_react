@@ -1,8 +1,7 @@
-import { API_URL } from "../../const";
 import s from "./Card.module.scss";
 import { Container } from "../../views/Container/Container";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { fetchProduct } from "../../store/product/product.slice";
 import { useParams } from "react-router-dom";
 import { Slider } from "./Slider/Slider";
@@ -18,7 +17,8 @@ export const Card = () => {
 
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка...{error}</div>;
-  const { article, name, price, images } = data;
+  const { article, name, price, images, characteristics } = data;
+  characteristics?.map((item) => console.log(`${item[0]}:  ${item[1]}`));
 
   if (price) {
     return (
@@ -33,20 +33,24 @@ export const Card = () => {
             </p>
             <p className={s.article}>{article}</p>
           </div>
-          <div className={s.characteristics}>
-            <h3 className={s.characteristicsTitle}>Общие характеристики</h3>
-            <div className={s.characteristicsTable}>
-              <ui className={s.table}>
-                {data?.characteristics.map((item, i) => {
-                  <li className={s.row} key={i}>
-                    <span className={s.field}>{item[0]}</span>
-                    <span className={s.value}>{item[1]}</span>
-                  </li>;
-                })}
-              </ui>
+          {characteristics?.length ? (
+            <div>
+              <h3 className={s.characteristicsTitle}>Общие характеристики</h3>
+              <table className={s.table}>
+                <tbody>
+                  {characteristics?.map((item, i) => {
+                    <tr className={s.row} key={i}>
+                      <td className={s.field}>{item[0]}</td>
+                      <td className={s.value}>{item[1]}</td>
+                    </tr>;
+                  })}
+                </tbody>
+              </table>
             </div>
-          </div>
-
+          ) : (
+            ""
+          )}
+          ;
           <div className={s.btns}>
             <button className={s.btn}>В корзину</button>
             <button className={s.like}>
