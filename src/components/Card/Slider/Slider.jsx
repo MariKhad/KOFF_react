@@ -19,7 +19,7 @@ export const Slider = ({ images, name }) => {
               onSwiper={setMainSwiper}
               spaceBetween={10}>
               {images?.map((item, i) => (
-                <SwiperSlide key={i} className={s.slideMain}>
+                <SwiperSlide key={i} className={s.slide}>
                   <img
                     src={`${API_URL}${item}`}
                     alt={name}
@@ -79,7 +79,6 @@ export const Slider = ({ images, name }) => {
         ) : (
           <>Loading...</>
         )}
-        ;
       </div>
       <div className={s.sliderThumbnails}>
         {images.length ? (
@@ -90,7 +89,7 @@ export const Slider = ({ images, name }) => {
             spaceBetween={14}
             slidesPerView={4}>
             {images?.map((item, index) => (
-              <SwiperSlide key={index} className={s.sliderThumbnail}>
+              <SwiperSlide key={index} className={s.slideThumbnail}>
                 <img
                   src={`${API_URL}${item}`}
                   alt={name}

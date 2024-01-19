@@ -4,7 +4,7 @@ import s from "./CardItem.module.scss";
 export const CardItem = ({ name, images: [image], price, id }) => (
   <article className={s.card}>
     <a href={`product/${id}`} className={s.link}>
-      <img src={`${API_URL}${image}`} alt={name} className="img" />
+      <img src={`${API_URL}${image}`} alt={name} className={s.img} />
     </a>
     <div className={s.info}>
       <h3 className={s.title}>

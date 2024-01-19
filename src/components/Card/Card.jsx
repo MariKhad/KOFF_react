@@ -18,9 +18,7 @@ export const Card = () => {
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка...{error}</div>;
   const { article, name, price, images, characteristics } = data;
-  characteristics?.map((item) => console.log(`${item[0]}:  ${item[1]}`));
-
-  if (price) {
+  if (characteristics?.length) {
     return (
       <section className={s.card}>
         <Container className={s.container}>
@@ -33,24 +31,25 @@ export const Card = () => {
             </p>
             <p className={s.article}>{article}</p>
           </div>
-          {characteristics?.length ? (
-            <div>
-              <h3 className={s.characteristicsTitle}>Общие характеристики</h3>
-              <table className={s.table}>
-                <tbody>
-                  {characteristics?.map((item, i) => {
-                    <tr className={s.row} key={i}>
-                      <td className={s.field}>{item[0]}</td>
-                      <td className={s.value}>{item[1]}</td>
-                    </tr>;
-                  })}
-                </tbody>
-              </table>
-            </div>
-          ) : (
-            ""
-          )}
-          ;
+          {characteristics?.length
+            ? (
+                <div>
+                  <h3 className={s.characteristicsTitle}>
+                    Общие характеристики
+                  </h3>
+                  <table className={s.table}>
+                    <tbody>
+                      {characteristics?.map((item, i) => (
+                        <tr className={s.row} key={i}>
+                          <td className={s.field}>{item[0]}</td>
+                          <td className={s.value}>{item[1]}</td>
+                        </tr>
+            ))}
+                    </tbody>
+                  </table>
+                </div>,
+              )
+            : ""}
           <div className={s.btns}>
             <button className={s.btn}>В корзину</button>
             <button className={s.like}>

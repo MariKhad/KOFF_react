@@ -20,7 +20,7 @@
   }
 }
 
-.slideMain {
+.slide {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,6 +59,11 @@
   top: 50%;
   transform: translateY(-50%);
   width: 32px;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 
   &_prev {
     right: 16px;
