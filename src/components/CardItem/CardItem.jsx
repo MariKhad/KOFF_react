@@ -1,8 +1,9 @@
+import { API_URL } from "../../const";
 import s from "./CardItem.module.scss";
 
 export const CardItem = ({ data }) => (
   <article className={s.card}>
-    <img src={data.images[0]} alt={data.name} className="img" />
+    <img src={`${API_URL}/${data.images[0]}`} alt={data.name} className="img" />
     <div className={s.info}>
       <h3 className={s.title}>{data.name}</h3>
       <p className={s.price}>

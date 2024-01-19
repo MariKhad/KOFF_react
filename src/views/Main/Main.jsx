@@ -34,10 +34,8 @@ export const Main = () => {
 
   return (
     <main>
-      <Container className={s.container}>
-        <Catalog data={dataCategories} />
-        <Goods data={dataProducts} />
-      </Container>
+      <Catalog data={dataCategories} />
+      <Goods data={dataProducts} />
     </main>
   );
 };
