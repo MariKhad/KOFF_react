@@ -1,8 +1,9 @@
 import { API_URL } from "../../const";
-import s from "./CardItem.module.scss";
+import s from "./Cart.module.scss";
 
-export const CardItem = ({ name, images: [image], price, id }) => (
+export const Cart = ({ name, images: [image], price, id }) => (
   <article className={s.card}>
+    CART
     <a href={`/product/${id}`} className={s.link}>
       <img src={`${API_URL}/${image}`} alt={name} className="img" />
     </a>
@@ -13,7 +14,7 @@ export const CardItem = ({ name, images: [image], price, id }) => (
         </a>
       </h3>
       <p className={s.price}>
-        {price.toLocaleString()}&nbsp;<span className={s.currency}>₽</span>
+        {price.toLocalString()}&nbsp;<span className={s.currency}>₽</span>
       </p>
     </div>
     <button className={s.btn}>В корзину</button>

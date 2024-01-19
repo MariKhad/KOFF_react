@@ -52,7 +52,11 @@ body {
 }
 
 main {
+  padding-bottom: 80px;
   flex-grow: 1;
+  @media (min-width: 820px) {
+    padding-bottom: 100px;
+  }
 }
 
 img,
