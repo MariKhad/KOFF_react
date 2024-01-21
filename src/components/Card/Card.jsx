@@ -24,51 +24,46 @@ export const Card = () => {
         <Container className={s.container}>
           <h2 className={s.title}>{name}</h2>
           {images?.length ? <Slider images={images} name={name} /> : ""}
-          <div className={s.info}>
-            <p className={s.price}>
-              {price.toLocaleString()}&nbsp;
-              <span className={s.currency}>₽</span>
-            </p>
-            <p className={s.article}>{article}</p>
-          </div>
-          {characteristics?.length
-            ? (
-                <div>
-                  <h3 className={s.characteristicsTitle}>
-                    Общие характеристики
-                  </h3>
-                  <table className={s.table}>
-                    <tbody>
-                      {characteristics?.map((item, i) => (
-                        <tr className={s.row} key={i}>
-                          <td className={s.field}>{item[0]}</td>
-                          <td className={s.value}>{item[1]}</td>
-                        </tr>
-            ))}
-                    </tbody>
-                  </table>
-                </div>,
-              )
-            : ""}
-          <div className={s.btns}>
-            <button className={s.btn}>В корзину</button>
-            <button className={s.like}>
-              <svg
-                width="16"
-                height="14"
-                viewBox="0 0 16 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  // eslint-disable-next-line max-len
-                  d="M8.41325 12.8733C8.18658 12.9533 7.81325 12.9533 7.58659 12.8733C5.65325 12.2133 1.33325 9.45998 1.33325 4.79332C1.33325 2.73332 2.99325 1.06665 5.03992 1.06665C6.25325 1.06665 7.32658 1.65332 7.99992 2.55998C8.67325 1.65332 9.75325 1.06665 10.9599 1.06665C13.0066 1.06665 14.6666 2.73332 14.6666 4.79332C14.6666 9.45998 10.3466 12.2133 8.41325 12.8733Z"
-                  fill="white"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+          <div>
+            <div className={s.info}>
+              <p className={s.price}>
+                {price.toLocaleString()}&nbsp;
+                <span className={s.currency}>₽</span>
+              </p>
+              <p className={s.article}>{article}</p>
+              <h3 className={s.characteristicsTitle}>Общие характеристики</h3>
+              <table className={s.table}>
+                <tbody>
+                  {characteristics?.map((item, i) => (
+                    <tr className={s.row} key={i}>
+                      <td className={s.field}>{item[0]}</td>
+                      <td className={s.value}>{item[1]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className={s.btns}>
+              <button className={s.btn}>В корзину</button>
+              <button className={s.like}>
+                <svg
+                  width="16"
+                  height="14"
+                  viewBox="0 0 16 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    // eslint-disable-next-line max-len
+                    d="M8.41325 12.8733C8.18658 12.9533 7.81325 12.9533 7.58659 12.8733C5.65325 12.2133 1.33325 9.45998 1.33325 4.79332C1.33325 2.73332 2.99325 1.06665 5.03992 1.06665C6.25325 1.06665 7.32658 1.65332 7.99992 2.55998C8.67325 1.65332 9.75325 1.06665 10.9599 1.06665C13.0066 1.06665 14.6666 2.73332 14.6666 4.79332C14.6666 9.45998 10.3466 12.2133 8.41325 12.8733Z"
+                    fill="white"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </Container>
       </section>

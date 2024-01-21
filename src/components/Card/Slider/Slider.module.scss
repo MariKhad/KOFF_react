@@ -65,7 +65,7 @@
     cursor: not-allowed;
   }
 
-  &_prev {
+  &_next {
     right: 16px;
 
     @media (min-width: 580px) {
@@ -73,7 +73,7 @@
     }
   }
 
-  &_next {
+  &_prev {
     left: 16px;
 
     @media (min-width: 580px) {
