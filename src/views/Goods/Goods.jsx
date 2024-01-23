@@ -5,18 +5,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import cn from "classnames";
 import { fetchProducts } from "../../store/products/products.slice";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
+import favoriteSlice from "../../store/favorite/favorite.slice";
 
 export const Goods = () => {
   const dispatch = useDispatch();
+
   const { data, loading, error } = useSelector((state) => state.products);
   const [searchParam] = useSearchParams();
   const category = searchParam.get("category");
   const q = searchParam.get("q");
-  const list = searchParam.get("list");
-
+  const list = JSON.parse(localStorage.getItem("favorite")).toString();
+  console.log(list);
   useEffect(() => {
-    dispatch(fetchProducts({ category, q, list }));
+    if (location.pathname === "/favorite") {
+      dispatch(fetchProducts({ list }));
+    } else {
+      dispatch(fetchProducts({ category, q }));
+    }
   }, [dispatch, category, q, list]);
 
   if (loading) return <div>Загрузка...</div>;

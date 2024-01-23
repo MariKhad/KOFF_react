@@ -23,7 +23,9 @@ export const fetchProducts = createAsyncThunk(
     }
 
     const token = state.auth.accessToken;
-    const response = await fetch(`${API_URL}api/products?${queryParams}`, {
+    const url = `${API_URL}api/products?${queryParams}`;
+    console.log(url);
+    const response = await fetch(url, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

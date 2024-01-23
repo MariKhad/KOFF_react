@@ -5,17 +5,17 @@ import { useSelector } from "react-redux";
 export const Navigation = () => {
   const favoriteList = useSelector((state) => state.favorite?.favoriteList);
 
-  const navigate = useNavigate();
+  /*   const navigate = useNavigate();
 
   const handleFavorite = (event) => {
     event.preventDefault();
     const searchList = favoriteList.toString();
     navigate(`?list=${searchList}`);
   };
-
+ */
   return (
     <nav className={s.navigation}>
-      <Link to="/favorite" className={s.link} onClick={handleFavorite}>
+      <Link to="/favorite" className={s.link}>
         <span className={s.text}>Избранное</span>
         <span>({favoriteList.length})</span>
         <svg
