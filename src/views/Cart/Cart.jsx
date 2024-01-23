@@ -1,0 +1,17 @@
+import { CartForm } from "../../components/CartForm/CartForm";
+import { CartPlace } from "../../components/CartPlace/CartPlace";
+import { CartProducts } from "../../components/CartProducts/CartProducts";
+import { API_URL } from "../../const";
+import { Container } from "../Container/Container";
+import s from "./Cart.module.scss";
+
+export const Cart = () => (
+  <section className={s.cart}>
+    <Container className={s.container}>
+      <h2 className={s.title}>Корзина</h2>
+      <CartPlace />
+      <CartProducts />
+      <CartForm />
+    </Container>
+  </section>
+);

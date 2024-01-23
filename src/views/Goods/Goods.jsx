@@ -6,24 +6,33 @@ import { useEffect } from "react";
 import cn from "classnames";
 import { fetchProducts } from "../../store/products/products.slice";
 import { useLocation, useSearchParams } from "react-router-dom";
-import favoriteSlice from "../../store/favorite/favorite.slice";
+import { Pagination } from "../../components/Pagination/Pagination";
 
 export const Goods = () => {
   const dispatch = useDispatch();
-
-  const { data, loading, error } = useSelector((state) => state.products);
+  const { data, loading, error, pagination } = useSelector(
+    (state) => state.products,
+  );
+  const { favoriteList } = useSelector((state) => state.favorite);
   const [searchParam] = useSearchParams();
+  const { pathname } = useLocation();
+
   const category = searchParam.get("category");
   const q = searchParam.get("q");
-  const list = JSON.parse(localStorage.getItem("favorite")).toString();
-  console.log(list);
+  const page = searchParam.get("page");
+  const list = favoriteList.join(",");
+
   useEffect(() => {
-    if (location.pathname === "/favorite") {
-      dispatch(fetchProducts({ list }));
-    } else {
-      dispatch(fetchProducts({ category, q }));
+    if (pathname === "/favorite") {
+      dispatch(fetchProducts({ list, page }));
     }
-  }, [dispatch, category, q, list]);
+  }, [dispatch, list, pathname, page]);
+
+  useEffect(() => {
+    if (pathname !== "/favorite") {
+      dispatch(fetchProducts({ category, q, page }));
+    }
+  }, [dispatch, category, q, pathname, page]);
 
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка...{error}</div>;
@@ -33,13 +42,16 @@ export const Goods = () => {
       <Container>
         <h2 className={cn(s.title, "visually-hidden")}>Список товаров</h2>
         {data?.length ? (
-          <ul className={s.list}>
-            {data.map((item) => (
-              <li key={item.id}>
-                <CardItem {...item} />
-              </li>
-            ))}
-          </ul>
+          <>
+            <ul className={s.list}>
+              {data.map((item) => (
+                <li key={item.id}>
+                  <CardItem {...item} />
+                </li>
+              ))}
+            </ul>
+            {pagination ? <Pagination pagination={pagination} /> : ""}
+          </>
         ) : (
           <div>По вашему запросу ничего не найдено</div>
         )}

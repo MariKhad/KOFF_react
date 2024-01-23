@@ -4,15 +4,8 @@ import { useSelector } from "react-redux";
 
 export const Navigation = () => {
   const favoriteList = useSelector((state) => state.favorite?.favoriteList);
+  const cart = useSelector((state) => state.cart);
 
-  /*   const navigate = useNavigate();
-
-  const handleFavorite = (event) => {
-    event.preventDefault();
-    const searchList = favoriteList.toString();
-    navigate(`?list=${searchList}`);
-  };
- */
   return (
     <nav className={s.navigation}>
       <Link to="/favorite" className={s.link}>
@@ -33,9 +26,9 @@ export const Navigation = () => {
           />
         </svg>
       </Link>
-      <Link href="/cart" className={s.link}>
+      <Link to="/cart" className={s.link}>
         <span className={s.text}>Корзина</span>
-        <span>(0)</span>
+        <span>({cart.products?.length})</span>
         <svg
           width="16"
           height="16"

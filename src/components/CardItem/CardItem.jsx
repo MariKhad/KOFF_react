@@ -1,4 +1,5 @@
 import { API_URL } from "../../const";
+import { addToCart } from "../../store/cart/cart.slice";
 import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
 import s from "./CardItem.module.scss";
 

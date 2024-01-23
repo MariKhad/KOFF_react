@@ -6,6 +6,7 @@ import { fetchProduct } from "../../store/product/product.slice";
 import { useParams } from "react-router-dom";
 import { Slider } from "./Slider/Slider";
 import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
+import { addToCart } from "../../store/cart/cart.slice";
 
 export const Card = () => {
   const dispatch = useDispatch();
@@ -48,7 +49,19 @@ export const Card = () => {
             </div>
 
             <div className={s.btns}>
-              <button className={s.btn}>В корзину</button>
+              <button
+                className={s.btn}
+                onClick={() =>
+                  addToCart({
+                    article,
+                    name,
+                    price,
+                    images,
+                    characteristics,
+                  })
+                }>
+                В корзину
+              </button>
               <FavoriteButton className={s.like} id={data.id} />
             </div>
           </div>
