@@ -6,7 +6,7 @@ import { fetchProduct } from "../../store/product/product.slice";
 import { useParams } from "react-router-dom";
 import { Slider } from "./Slider/Slider";
 import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
-import { addToCart } from "../../store/cart/cart.slice";
+import { AddCartButton } from "../AddCartButton/AddCartButton";
 
 export const Card = () => {
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ export const Card = () => {
                 {price.toLocaleString()}&nbsp;
                 <span className={s.currency}>₽</span>
               </p>
-              <p className={s.article}>{article}</p>
+              <p className={s.article}>арт. {article}</p>
               <h3 className={s.characteristicsTitle}>Общие характеристики</h3>
               <table className={s.table}>
                 <tbody>
@@ -49,19 +49,7 @@ export const Card = () => {
             </div>
 
             <div className={s.btns}>
-              <button
-                className={s.btn}
-                onClick={() =>
-                  addToCart({
-                    article,
-                    name,
-                    price,
-                    images,
-                    characteristics,
-                  })
-                }>
-                В корзину
-              </button>
+              <AddCartButton className={s.btn} id={data.id} />
               <FavoriteButton className={s.like} id={data.id} />
             </div>
           </div>

@@ -2,8 +2,6 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import s from "./Pagination.module.scss";
 
 export const Pagination = ({ pagination }) => {
-  console.log(pagination);
-
   const { limit, totalProducts, currentPage, totalPages } = pagination;
   const location = useLocation();
   const [searchParam] = useSearchParams();

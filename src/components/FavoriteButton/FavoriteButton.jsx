@@ -13,7 +13,6 @@ export const FavoriteButton = ({ className, id }) => {
 
   const isFavorite = favoriteList?.includes(id);
   const handleFavoriteClick = (id) => {
-    console.log(favoriteList);
     if (isFavorite) {
       dispatch(removeFavorite(id));
     } else {

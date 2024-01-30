@@ -1,5 +1,6 @@
 import { API_URL } from "../../const";
 import { addToCart } from "../../store/cart/cart.slice";
+import { AddCartButton } from "../AddCartButton/AddCartButton";
 import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
 import s from "./CardItem.module.scss";
 
@@ -18,7 +19,7 @@ export const CardItem = ({ name, images: [image], price, id }) => (
         {price.toLocaleString()}&nbsp;<span className={s.currency}>₽</span>
       </p>
     </div>
-    <button className={s.btn}>В корзину</button>
+    <AddCartButton className={s.btn} id={id} />
     <FavoriteButton className={s.favorite} id={id} />
   </article>
 );
