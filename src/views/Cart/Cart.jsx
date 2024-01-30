@@ -7,7 +7,7 @@ import s from "./Cart.module.scss";
 
 export const Cart = () => {
   const { products, totalPrice, totalCount } = useSelector(
-    (state) => state.cart,
+    (state) => state?.cart,
   );
 
   if (!totalCount) {

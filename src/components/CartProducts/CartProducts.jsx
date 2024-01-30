@@ -31,11 +31,15 @@ export const CartProducts = ({ products }) => {
             </p>
             <p className={s.article}>арт. {article}</p>
             <div className={s.productControl}>
-              <button className={s.productBtn} onClick={() => handleMinus()}>
+              <button
+                className={s.productBtn}
+                onClick={() => handleMinus(id, quantity)}>
                 -
               </button>
-              <p className={s.productCount}>{quantity}</p>
-              <button className={s.productBtn} onClick={() => handlePlus()}>
+              <p className={s.productCount}>{quantity ? quantity : 1}</p>
+              <button
+                className={s.productBtn}
+                onClick={() => handlePlus(id, quantity)}>
                 +
               </button>
             </div>
