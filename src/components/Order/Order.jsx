@@ -5,6 +5,7 @@ import { Container } from "../../views/Container/Container";
 import { clearOrder, fetchOrder } from "../../store/order/order.slice";
 import { useParams } from "react-router-dom";
 import { fetchCart } from "../../store/cart/cart.slice";
+import { Preloader } from "../Preloader/Preloader";
 
 export const Order = () => {
   const dispatch = useDispatch();
@@ -24,16 +25,16 @@ export const Order = () => {
   }, [dispatch, orderId]);
 
   if (loading) {
-    return <div>Загрузка данных...</div>;
+    return <Preloader />;
   }
 
   if (error) {
     return <div>Ошибка {error}</div>;
   }
-
+  /*
   if (orderData === null) {
     return <div>Заказ не найден</div>;
-  }
+  } */
 
   return (
     <section className={s.order}>

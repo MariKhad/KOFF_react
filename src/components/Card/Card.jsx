@@ -20,7 +20,7 @@ export const Card = () => {
 
   if (loading) return <Preloader />;
   if (error) return <div>Ошибка...{error}</div>;
-  if (!data) return <div>Товар не найден, попробуйте позже</div>;
+ // if (!data) return <div>Товар не найден, попробуйте позже</div>;
 
   const { article, name, price, images, characteristics } = data;
   if (characteristics?.length) {
