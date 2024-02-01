@@ -4,6 +4,7 @@ import s from "./Catalog.module.scss";
 import { fetchCategories } from "../../store/categories/categories.slice";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { BarLoader } from "../../components/BarLoader/BarLoader";
 
 export const Catalog = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,14 @@ export const Catalog = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  if (loading) return <div>Загрузка...</div>;
+  if (loading) {
+    return (
+      <Container className={s.preloader}>
+        <BarLoader />
+      </Container>
+    );
+  }
+
   if (error) return <div>Ошибка...{error}</div>;
 
   return (

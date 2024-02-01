@@ -1,9 +1,10 @@
 import s from "./Slider.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Thumbs } from "swiper/modules";
+import { Thumbs } from "swiper/modules";
 import { API_URL } from "../../../const";
 import { useState } from "react";
 import cn from "classnames";
+import { Img } from "../../Img/Img";
 
 export const Slider = ({ images, name }) => {
   const [mainSwiper, setMainSwiper] = useState(null);
@@ -23,7 +24,7 @@ export const Slider = ({ images, name }) => {
               loop={"true"}>
               {images?.map((item, i) => (
                 <SwiperSlide key={i} className={s.slide}>
-                  <img
+                  <Img
                     src={`${API_URL}${item}`}
                     alt={name}
                     className={s.image}
@@ -58,7 +59,6 @@ export const Slider = ({ images, name }) => {
             <button
               className={cn(s.arrow, s.arrow_prev)}
               onClick={() => mainSwiper.slidePrev()}>
-              {" "}
               <svg
                 width="32"
                 height="32"
@@ -94,7 +94,7 @@ export const Slider = ({ images, name }) => {
             slidesPerView={4}>
             {images?.map((item, index) => (
               <SwiperSlide key={index} className={s.slideThumbnail}>
-                <img
+                <Img
                   src={`${API_URL}${item}`}
                   alt={name}
                   className={s.imgThumbnail}

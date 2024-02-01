@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { Slider } from "./Slider/Slider";
 import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
 import { AddCartButton } from "../AddCartButton/AddCartButton";
+import { Preloader } from "../Preloader/Preloader";
 
 export const Card = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export const Card = () => {
     dispatch(fetchProduct(productId));
   }, [dispatch, productId]);
 
-  if (loading) return <div>Загрузка...</div>;
+  if (loading) return <Preloader />;
   if (error) return <div>Ошибка...{error}</div>;
   if (!data) return <div>Товар не найден, попробуйте позже</div>;
 

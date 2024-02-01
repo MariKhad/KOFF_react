@@ -7,6 +7,7 @@ import cn from "classnames";
 import { fetchProducts } from "../../store/products/products.slice";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { Pagination } from "../../components/Pagination/Pagination";
+import { Preloader } from "../../components/Preloader/Preloader";
 
 export const Goods = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ export const Goods = () => {
     }
   }, [dispatch, category, q, pathname, page]);
 
-  if (loading) return <div>Загрузка...</div>;
+  if (loading) return <Preloader />;
   if (error) return <div>Ошибка...{error}</div>;
 
   return (
